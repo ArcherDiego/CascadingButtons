@@ -1,24 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import Button from "./components/Button";
+
+const bodyStyle = {
+  backgroundColor: 'lightgreen',
+  textAlign: 'center',
+  height: '100%'
+}
+
+const pStyle = {
+  textAlign: 'center',
+  fontSize: '2.5em',
+  margin: '3%',
+  fontWeight: 'bold'
+}
 
 function App() {
+
+  const [name, setName] = useState('OFF')
+
+  const toggle = () => {
+    if(name === 'OFF'){
+      setName('ON')
+    } else {
+      setName('OFF')
+    }
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div style={ bodyStyle } className="App">
+        <p style={ pStyle }>Test</p>
+        <Button onClick={ toggle } name={name} />
+        <Button onClick={ toggle } name={name} />
+        <Button onClick={ toggle } name={name} />
+      </div>
+    </>
   );
 }
 
