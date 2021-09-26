@@ -16,13 +16,29 @@ const pStyle = {
 
 function App() {
 
-  const [name, setName] = useState('OFF')
+  const [nameB1, setNameB1] = useState('OFF')
+  const [nameB2, setNameB2] = useState('OFF')
+  const [nameB3, setNameB3] = useState('OFF')
 
-  const toggle = () => {
-    if(name === 'OFF'){
-      setName('ON')
-    } else {
-      setName('OFF')
+  const toggle = (num) => {
+    if(nameB1 === 'OFF' && num === 1){
+      setNameB1('ON')
+    } else if(nameB1 === 'ON' && num === 1) {
+      setNameB1('OFF')
+    } else if(nameB2 === 'OFF' && num === 2) {
+      setNameB1('ON')
+      setNameB2('ON')
+    } else if(nameB2 === 'ON' && num === 2) {
+      setNameB1('OFF')
+      setNameB2('OFF')
+    } else if(nameB3 === 'OFF' && num === 3) {
+      setNameB1('ON')
+      setNameB2('ON')
+      setNameB3('ON')
+    } else if(nameB3 === 'ON' && num === 3) {
+      setNameB1('OFF')
+      setNameB2('OFF')
+      setNameB3('OFF')
     }
   }
 
@@ -30,9 +46,9 @@ function App() {
     <>
       <div style={ bodyStyle } className="App">
         <p style={ pStyle }>Test</p>
-        <Button onClick={ toggle } name={name} />
-        <Button onClick={ toggle } name={name} />
-        <Button onClick={ toggle } name={name} />
+        <Button onClick={ () => toggle(1) } name={nameB1} />
+        <Button onClick={ () => toggle(2) } name={nameB2} />
+        <Button onClick={ () => toggle(3) } name={nameB3} />
       </div>
     </>
   );
